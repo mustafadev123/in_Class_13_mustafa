@@ -27,39 +27,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Future<void> _showPasswordDialog() async {
-    final controller = TextEditingController();
-    final formKey = GlobalKey<FormState>();
     final password = await showDialog<String>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Update password'),
-        content: Form(
-          key: formKey,
-          child: TextFormField(
-            controller: controller,
-            obscureText: true,
-            autofocus: true,
-            decoration: const InputDecoration(labelText: 'New password'),
-            validator: validatePassword,
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
-          ),
-          FilledButton(
-            onPressed: () {
-              if (formKey.currentState!.validate()) {
-                Navigator.pop(context, controller.text);
-              }
-            },
-            child: const Text('Update'),
-          ),
-        ],
-      ),
+      builder: (context) => const _PasswordUpdateDialog(),
     );
-    controller.dispose();
 
     if (password == null || !mounted) return;
     try {
@@ -126,6 +97,55 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _PasswordUpdateDialog extends StatefulWidget {
+  const _PasswordUpdateDialog();
+
+  @override
+  State<_PasswordUpdateDialog> createState() => _PasswordUpdateDialogState();
+}
+
+class _PasswordUpdateDialogState extends State<_PasswordUpdateDialog> {
+  final _controller = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Update password'),
+      content: Form(
+        key: _formKey,
+        child: TextFormField(
+          controller: _controller,
+          obscureText: true,
+          autofocus: true,
+          decoration: const InputDecoration(labelText: 'New password'),
+          validator: validatePassword,
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Cancel'),
+        ),
+        FilledButton(
+          onPressed: () {
+            if (_formKey.currentState!.validate()) {
+              Navigator.pop(context, _controller.text);
+            }
+          },
+          child: const Text('Update'),
+        ),
+      ],
     );
   }
 }
