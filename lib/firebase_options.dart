@@ -16,19 +16,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'REPLACE_WITH_FIREBASE_WEB_API_KEY',
-    appId: 'REPLACE_WITH_FIREBASE_WEB_APP_ID',
-    messagingSenderId: 'REPLACE_WITH_FIREBASE_MESSAGING_SENDER_ID',
-    projectId: 'REPLACE_WITH_FIREBASE_PROJECT_ID',
-    authDomain: 'REPLACE_WITH_FIREBASE_PROJECT_ID.firebaseapp.com',
-    storageBucket: 'REPLACE_WITH_FIREBASE_PROJECT_ID.firebasestorage.app',
+    apiKey: 'AIzaSyBf7TpAjbDmzgw81RjgP8FTe03NzdC14jU',
+    appId: '1:814084149906:web:cafb5d4ac3b68f39474c4b',
+    messagingSenderId: '814084149906',
+    projectId: 'studio-2331444950-20a90',
+    authDomain: 'studio-2331444950-20a90.firebaseapp.com',
+    storageBucket: 'studio-2331444950-20a90.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'REPLACE_WITH_FIREBASE_ANDROID_API_KEY',
-    appId: 'REPLACE_WITH_FIREBASE_ANDROID_APP_ID',
-    messagingSenderId: 'REPLACE_WITH_FIREBASE_MESSAGING_SENDER_ID',
-    projectId: 'REPLACE_WITH_FIREBASE_PROJECT_ID',
-    storageBucket: 'REPLACE_WITH_FIREBASE_PROJECT_ID.firebasestorage.app',
+    apiKey: 'AIzaSyDxhroPq9SX3qPhi3R0HqQLxI1Wh_vpyZI',
+    appId: '1:814084149906:android:ccbbdd9fe93856e7474c4b',
+    messagingSenderId: '814084149906',
+    projectId: 'studio-2331444950-20a90',
+    storageBucket: 'studio-2331444950-20a90.firebasestorage.app',
   );
 }
